@@ -34,10 +34,9 @@ class Player(Entity):
         # shoot
 
     def shoot(self):
-        self.shoot_delay -=1
+        self.shoot_delay -= 1
         if self.shoot_delay == 0:
             self.shoot_delay = ENTITY_SHOOT_DELAY[self.name]
             pressed_key = pygame.key.get_pressed()
             if pressed_key[PLAYER_KEY_SHOOT[self.name]]:
                 return PlayerShoot(name=f'{self.name}Shoot', position=(self.rect.centerx, self.rect.centery))
-
